@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type = "checkbox"
+            name = "selectall"
+            value = "selectall"
+            onclick="selectAll(this)"
+    />SELECT ALL
+<br>
+    <input type = "checkbox"
+            name = "animal"
+            value = "dog"
+            onclick="check()"
+    />개
+<br>
+
+    <input type = "checkbox"
+            name = "animal"
+            value = "cat"
+            onclick="check()"
+    />고양이
+<br>
+    <input type = "checkbox"
+            name = "animal"
+            value = "rabbit"
+            onclick="check()"
+    />토끼
+<br>
+
+<script>
+function selectAll(all){
+    const selectall = document.getElementsByName("animal")
+    selectall.forEach(ele=>{
+        ele.checked=all.checked
+    })
+}
+
+function check(){
+
+//동물 체크박스 선택
+const checkbox = document.querySelectorAll("input[name='animal']")
+console.log(checkbox);
+
+//선택된 동물 체크박스 선택
+const check = document.querySelectorAll("input[name='animal']:checked")
+console.log(check);
+}
+
+const selectall = document.querySelector("input[name='selectall']:checked")
+console.log(selectall)
+
+
+
+
+
+
+
+</script>
+    
+
+
+
+    
+
+
+</body>
+</html>

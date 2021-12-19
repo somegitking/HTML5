@@ -1,0 +1,75 @@
+<!-- 1. 1개 선택 해제되면 전체선택 해제 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+<input type='checkbox'
+       name='selectall' 
+       value='selectall'
+       onclick='selectAll(this)'/> <b>Select All</b>
+<br />
+<input type='checkbox'
+       name='animal' 
+       value='dog'
+       onclick='checkSelectAll()'/> 개
+<br />
+<input type='checkbox' 
+       name='animal' 
+       value='cat' 
+       onclick='checkSelectAll()'/> 고양이
+<br />
+<input type='checkbox' 
+       name='animal' 
+       value='rabbit' 
+       onclick='checkSelectAll()'/> 토끼
+       
+
+<script>
+ // 개, 고양이, 토끼 버튼이 클릭되면 동작
+function checkSelectAll()  {
+ 
+  const checkboxes 
+    = document.querySelectorAll('input[name="animal"]');  // 네임이 animal인 input들 배열에 저장됨
+//    console.log(checkboxes);
+
+    const checked 
+    = document.querySelectorAll('input[name="animal"]:checked');// 네임이 animal이고 체크된 input들 배열에 저장됨  
+//  console.log(checked);
+ 
+
+  const selectAll 
+    = document.querySelector('input[name="selectall"]'); //네임이 selectall인 input을 배열에 저장
+//    console.log(selectAll);
+
+
+  if(checkboxes.length === checked.length)  {//animal 버튼 전체 갯수가 체크된 animal 버튼 수와 일치하면
+    selectAll.checked = true; //select all 버튼은 체크 상태로 만들기
+    console.log(selectAll.checked);
+  }else {
+    selectAll.checked = false;//select all 버튼을 체크 안된 상태로 만들기
+    console.log(selectAll.checked);
+  }
+
+}
+
+function selectAll(selectAll)  {
+  const checkboxes 
+     = document.getElementsByName('animal'); //네임이 animal element들을 선택
+  
+  checkboxes.forEach((checkbox) => { //anmial element에 대해서 각각
+    checkbox.checked = selectAll.checked 
+    
+    //selectAll.checked 상태 처럼 animal element도 동일하게 하라 
+  })
+}
+
+</script>
+
+
+</body>
+</html>
